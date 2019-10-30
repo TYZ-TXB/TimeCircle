@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}"
+          href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/Hplus/css/font-awesome.min.css}" href="../static/Hplus/css/font-awesome.min.css" rel="stylesheet">
+    <link th:href="@{/Hplus/css/animate.css}" href="../static/Hplus/css/animate.css" rel="stylesheet">
+    <link th:href="@{/Hplus/css/style.css}" href="../static/Hplus/css/style.css" rel="stylesheet">
+    <link th:href="@{/css/currency.css}" href="../static/css/currency.css" rel="stylesheet">
+    <script th:src="@{/jquery/jquery-3.4.1.min.js}" src="../static/jquery/jquery-3.4.1.min.js"
+            type="text/javascript">
+    </script>
+    <script th:src="@{/js/currency.js}" src="../static/js/currency.js"
+            type="text/javascript"></script>
+</head>
+<body class="gray-bg">
+<div class="row">
+    <div class="col-sm-4">
+        <iframe th:src="@{toProfile(uid=${session.userInfo.UID})}" src="profile.html" width="100%" height="600px"
+                frameborder="0" scrolling="no"
+                allowtransparency="yes">
+        </iframe>
+    </div>
+    <div class="col-sm-6">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row m-t-sm">
+                        <div class="col-sm-12">
+                            <div class="panel blank-panel">
+                                <!--内容头部信息-->
+                                <div class="panel-heading">
+                                    <button class="btn btn-primary btn-rounded btn-block" onclick="openRelease(this)">
+                                        <i class="fa fa-share"></i> 发表
+                                    </button>
+                                </div>
+                                <!--内容主题信息-->
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-1">
+                                            <div id="DynamicContent" class="feed-activity-list">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}" src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"
+        type="text/javascript"></script>
+<script th:src="@{/Hplus/js/content.js}" src="../static/Hplus/js/content.js"></script>
+<script th:src="@{/Hplus/js/plugins/layer/layer.min.js}" src="../static/Hplus/js/plugins/layer/layer.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/utils.js}" th:inline="javascript"></script>
+<script type="text/javascript" th:src="@{/js/Home.js}" th:inline="javascript"></script>
+<script type="text/javascript">
+    spinkit('on', $("#DynamicContent"));
+    getAllDynamic(showDynamic, $("#DynamicContent"));
+</script>
+</html>

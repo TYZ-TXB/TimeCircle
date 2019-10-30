@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script type="text/javascript" th:src="@{/jquery/jquery-3.4.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/jquery/jquery.md5.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap-4.3.1-dist/js/bootstrap.min.js}"></script>
+    <link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/style.css}" rel="stylesheet">
+</head>
+<body class="gray-bg">
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">TC</h1>
+        </div>
+        <h3>欢迎使用 TC</h3>
+        <form class="m-t" role="form" id="login-form" method="post" th:action="@{/login}">
+            <div class="form-group">
+                <input type="email" id="email" class="form-control" name="email" placeholder="邮箱" required="required">
+                <div class="invalid-feedback">请输入正确的邮箱格式</div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="密码"
+                       required="required">
+                <div class="invalid-feedback">密码由6~16位的字母和数字组成</div>
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
+            <p class="text-muted text-center"><a href="">
+                <small>忘记密码了？</small>
+            </a> | <a th:href="@{/toRegister}">注册一个新账号</a>
+            </p>
+            <div class="alert alert-danger alert-dismissable"
+                 th:text="${session.error.msg}" th:unless="${session.error == null}">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            </div>
+        </form>
+    </div>
+    <script th:src="@{/js/UserRule.js}"></script>
+    <script th:src="@{/js/User.js}"></script>
+
+</div>
+
+</body>
+</html>

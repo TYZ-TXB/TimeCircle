@@ -1,0 +1,28 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.pd-all{
+    padding: 10px;
+}
+
+
+.img-wrap {
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+}
+
+.img-wrap .close-font {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 5px 2px 2px;
+    cursor: pointer;
+    opacity: .2;
+    font-size: 22px;
+}
+
+.img-wrap .close-font:hover {
+    opacity: 1;
+}

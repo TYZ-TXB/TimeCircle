@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script type="text/javascript" th:src="@{/jquery/jquery-3.4.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/jquery/jquery.md5.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap-4.3.1-dist/js/bootstrap.min.js}"></script>
+    <link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/style.css}" rel="stylesheet">
+    <link th:href="@{/Hplus/css/plugins/iCheck/custom.css}" rel="stylesheet">
+
+</head>
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen   animated fadeInDown">
+    <div>
+        <div>
+            <h1 class="logo-name">TC</h1>
+        </div>
+        <h3>欢迎注册 TC</h3>
+        <p>创建一个TC新账户</p>
+        <form class="m-t" id="form-register" role="form" method="post" th:action="@{/register}">
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder="请输入邮箱" required="">
+                <div class="invalid-feedback">请输入正确的邮箱格式</div>
+            </div>
+            <div class="form-group">
+                <input type="text" name="nickName" id="nick-name" class="form-control" placeholder="请输入用户名" required="">
+                <div class="invalid-feedback">用户名由4~8的字母或者中文组成</div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码"
+                       required="">
+                <div class="invalid-feedback">密码由6~16位的字母和数字组成</div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password-two" class="form-control" placeholder="请再次输入密码" required="">
+                <div class="invalid-feedback">两次密码不一致</div>
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">注 册</button>
+            <p class="text-muted text-center">
+                <small>已经有账户了？</small>
+                <a th:href="@{/toLogin}">点此登录</a>
+            </p>
+            <div class="alert alert-danger alert-dismissable"
+                 th:text="${session.error.msg}" th:unless="${session.error == null}">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- iCheck -->
+<script th:src="@{/Hplus/js/plugins/iCheck/icheck.min.js}"></script>
+<script th:src="@{/js/UserRule.js}"></script>
+<script th:src="@{/js/User.js}"></script>
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+
+</body>
+</html>
